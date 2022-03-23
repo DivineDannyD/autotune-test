@@ -1,0 +1,102 @@
+:root {
+  --clr-transwhite: rgba(170, 100, 228, 0.2);
+  --clr-light: #eee;
+  --clr-bright: gold;
+  --clr-dkbright: goldenrod;
+  --clr-bright2: crimson;
+  --clr-grd-purp: linear-gradient(50deg, rgba(162,122,182,.8) 0%, rgba(228,195,245,.8) 100%);
+  --fnt-main: "Basic sans";
+  --fnt-sz-large: 3em;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: var(--clr-light);
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--fnt-main);
+}
+
+.container {
+  width: 300px;
+  height: 300px;
+  display: block;
+  border: 10px solid var(--clr-dkbright);
+  position: relative;
+  background-color: var(--clr-bright);
+  margin: 250px auto;
+  perspective: 40em;
+}
+
+.inner {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-style: preserve-3d;
+  transform: rotateY(0) rotateX(0);
+  -webkit-animation: animate 10000ms linear infinite;
+          animation: animate 10000ms linear infinite;
+  transition: transform 3000ms linear;
+}
+
+.container:hover .inner {
+  transform: rotateY(180deg);
+}
+
+@-webkit-keyframes animate {
+  to {
+    transform: rotateY(-360deg) rotateX(360deg);
+  }
+}
+
+@keyframes animate {
+  to {
+    transform: rotateY(-360deg) rotateX(360deg);
+  }
+}
+.inner > * {
+  font-size: var(--fnt-sz-large);
+  text-align: center;
+  color: var(--clr-bright2);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-content: center;
+  text-transform: uppercase;
+  background: var(--clr-grd-purp);
+}
+.inner > *:nth-child(1) {
+  transform: rotateX(90deg) translateZ(140px);
+}
+.inner > *:nth-child(2) {
+  transform: translateY(140px) rotateX(-90deg);
+}
+.inner > *:nth-child(3) {
+  transform: rotateY(90deg) translateZ(140px);
+}
+.inner > *:nth-child(4) {
+  transform: translateX(-140px) rotateY(-90deg);
+}
+.inner > *:nth-child(5) {
+  transform: translateZ(140px);
+}
+.inner > *:nth-child(6) {
+  transform: translateZ(-140px) rotateY(180deg);
+}/*# sourceMappingURL=3dcss_05.css.map */

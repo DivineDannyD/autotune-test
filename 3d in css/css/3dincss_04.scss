@@ -1,0 +1,115 @@
+:root {
+    --clr-light: #eee;
+    --clr-bright: gold;
+    --clr-dkbright: goldenrod;
+    --clr-bright2: crimson;
+
+    --fnt-main: 'Helvetica';
+
+    --fnt-sz-large: 10em;
+}
+
+html {
+    box-sizing: border-box; 
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+    padding: 0;
+    margin: 0;
+}
+body {
+    padding: 0;
+    margin: 0;
+    background-color: var(--clr-light);
+    -webkit-font-smoothing: antialiased;
+    font-family: var(--fnt-main);
+}
+
+.container {
+    width: 300px;
+    height: 300px;
+    display: block;
+    border: 10px solid var(--clr-dkbright);
+    position: relative;
+    background-color: var(--clr-bright);
+    margin: 250px auto;
+    // Parent important
+    perspective: 40em;
+}
+
+.inner {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: white;
+    // Child important
+    transform-style: preserve-3d;
+    transform: rotateY(0);
+    // transform-origin: top;
+
+    animation: animate 10000ms linear infinite;
+    transition: transform 3000ms linear;
+}
+
+.container:hover .inner {
+    transform: rotateY(180deg);
+}
+
+@keyframes animate {
+    to {
+        transform: rotateY(-360deg);
+    }
+}
+
+// Obect Styling
+
+.inner > * {
+    font-size: var(--fnt-sz-large);
+    text-align: center;
+    color: var(--clr-bright2);
+    position: absolute;
+    width: 75%;
+    height: 75%;
+    display: grid;
+    place-content: center;
+    border: 6px solid var(--clr-bright2);
+    // filter: drop-shadow(0 0 10px #0006);
+ 
+    &:nth-child(1) {
+        transform: translateZ(1px);
+    }
+    &:nth-child(2) {
+        transform: translateZ(50px);
+    }
+    &:nth-child(3) {
+        transform: translateZ(100px);
+    }
+    &:nth-child(4) {
+        transform: translateZ(150px);
+    }
+    &:nth-child(5) {
+        transform: translateZ(200px);
+    }
+    &:nth-child(6) {
+        transform: translateZ(250px);
+    }
+    &:nth-child(7) {
+        transform: translateZ(300px);
+    }
+    &:nth-child(8) {
+        transform: translateZ(350px);
+    }
+    &:nth-child(9) {
+        transform: translateZ(400px);
+    }
+    &:nth-child(10) {
+        transform: translateZ(450px);
+    }
+}
